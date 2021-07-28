@@ -22,7 +22,7 @@ else:
     
 st.title('未來48小時')
 
-if password == 'wr-taipower-temp-dashboard':
+if password == st.secrets['password']:
     st.line_chart(data.iloc[:48*6].set_index('PeriodEnd'))
 else:
     st.write('密碼錯誤！')
