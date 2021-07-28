@@ -8,7 +8,7 @@ st.title('全台灣太陽能發電量預報（修正後）')
 
 password = st.text_input("Enter a password", type="password")
 
-data = pd.read_csv("s3://taipower-green-energy-data/aggregations/calibrated-aggregation.csv")
+data = pd.read_csv(st.secrets['url'])
 data.PeriodEnd = pd.to_datetime(data.PeriodEnd) + timedelta(hours = 16)
 
 # plot
