@@ -3,6 +3,9 @@ import pandas as pd
 from datetime import timedelta
 import s3fs
 
+
+fs = s3fs.S3FileSystem(anon=False, key=st.secrets["key"], secret=st.secrets["secret"])
+
 st.title('全台灣太陽能發電量預報（修正後）')
 
 password = st.text_input("Enter a password", type="password")
