@@ -15,7 +15,7 @@ data.PeriodEnd = pd.to_datetime(data.PeriodEnd) + timedelta(hours = 16)
 
 st.title('未來168小時')
 
-if password == 'wr-taipower-temp-dashboard':
+if password == st.secrets['password']:
     st.line_chart(data.set_index('PeriodEnd'))
 else:
     st.write('密碼錯誤！')
