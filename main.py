@@ -2,14 +2,17 @@ import streamlit as st
 import pandas as pd
 from datetime import timedelta
 import s3fs
+from time import sleep
 
 st.title('全台灣太陽能發電量預報（修正後）')
 
 password = st.text_input("Enter a password", type="password")
 
-
-data = pd.read_csv("s3://taipower-green-energy-data/aggregations/calibrated-aggregation.csv")
-data.PeriodEnd = pd.to_datetime(data.PeriodEnd) + timedelta(hours = 16)
+while True:
+    data = pd.read_csv("s3://taipower-green-energy-data/aggregations/calibrated-aggregation.csv")
+    data.PeriodEnd = pd.to_datetime(data.PeriodEnd) + timedelta(hours = 16)
+    
+    sleep(300)
 
 # plot
 
